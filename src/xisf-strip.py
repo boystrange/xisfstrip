@@ -5,8 +5,8 @@ from pathlib import Path
 dry_run = False
 
 if len(sys.argv) < 2:
-    print('XISF Strip v1.0 by Luca Padovani (2026)')
-    print('Usage: xisfstrip path')
+    print('XISF Strip v1.0 (2026) Luca Padovani')
+    print('Usage: xisf-strip path')
     sys.exit(-1)
 
 def strip(file_name):

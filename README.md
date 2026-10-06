@@ -1,4 +1,14 @@
-# XISF Strip
+# Astro tools
 
-Simple Python script to remove rejection maps from a XISF file and
-thus reduce its size.
+## `xisf-strip`
+
+Remove rejection maps from a XISF file and use compression to reduce
+its size.
+
+## `rename-filters`
+
+Rename filter names into XISF files.
+
+## `extract-metadata`
+
+Compute total integration time for various filters.

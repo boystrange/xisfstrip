@@ -26,18 +26,15 @@ def update(file_name):
     im_data = xisf.read_image(0)
     old_filter = ims_meta[0]['XISFProperties']['Instrument:Filter:Name']['value']
     new_filter = filter_map.get(old_filter, old_filter)
-    if old_filter != new_filter:
-        if not dry_run:
-            ims_meta[0]['XISFProperties']['Instrument:Filter:Name']['value'] = new_filter
-            XISF.write(
-                file_name, im_data,
-                image_metadata = ims_meta[0],
-                xisf_metadata = file_meta,
-                codec = 'lz4hc', shuffle = True
-            )
-        print('>>', old_filter, '=>', new_filter)
-    else:
-        print('>>', old_filter, 'not changed')
+    print('>>', old_filter, '=>', new_filter)
+    if old_filter != new_filter and not dry_run:
+        ims_meta[0]['XISFProperties']['Instrument:Filter:Name']['value'] = new_filter
+        XISF.write(
+            file_name, im_data,
+            image_metadata = ims_meta[0],
+            xisf_metadata = file_meta,
+            codec = 'lz4hc', shuffle = True
+        )
 
 for f in sys.argv[1:]:
     print('Processing', f, '... ')
